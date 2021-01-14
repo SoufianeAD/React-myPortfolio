@@ -1,10 +1,19 @@
 import React from "react";
+import Contentful from "../api/ContentFul";
 
 class Education extends React.Component {
+
+    componentDidMount() {
+        Contentful.getEntries({ 'content_type' : 'certificate'})
+            .then(response => {
+                console.log(response.items);
+            });
+    }
+
     render() {
         return (
             <div>
-                <section id="resume" className="resume">
+                <section id="resume" className="resume section-bg">
                     <div className="container">
 
                         <div className="section-title">
@@ -15,14 +24,15 @@ class Education extends React.Component {
                             <div className="col-lg-6" data-aos="fade-up">
                                 <h3 className="resume-title">Education</h3>
                                 <div className="resume-item">
-                                    <h4> Second year of IT engineering</h4>
+                                    <h4> Second year in Computer science Engineering</h4>
                                     <h5>2020 - 2021</h5>
                                     <p><em>ENSIIE PARIS-EVRY, FRANCE</em></p>
                                     <ul>
                                         <li>
-                                            Design and development of a web application using ANGULAR,
-                                            SPRING BOOT, DATA-JPA that manages the interventions of maintenance
-                                            of the classrooms and IT labs, also it manages the IT equipments Stock.
+                                            Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                            libero tempore, cum soluta nobis est eligendi
+                                            Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                            libero tempore, cum soluta nobis est eligendi
                                         </li>
                                     </ul>
                                 </div>
@@ -32,9 +42,10 @@ class Education extends React.Component {
                                     <p><em>ESISA FES, MOROCCO</em></p>
                                     <ul>
                                         <li>
-                                            Design and development of a web application using ANGULAR,
-                                            SPRING BOOT, DATA-JPA that manages the interventions of maintenance
-                                            of the classrooms and IT labs, also it manages the IT equipments Stock.
+                                            Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                            libero tempore, cum soluta nobis est eligendi
+                                            Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                            libero tempore, cum soluta nobis est eligendi
                                         </li>
                                     </ul>
                                 </div>
@@ -44,9 +55,10 @@ class Education extends React.Component {
                                     <p><em>ESISA FES, MOROCCO</em></p>
                                     <ul>
                                         <li>
-                                            Design and development of a web application using ANGULAR,
-                                            SPRING BOOT, DATA-JPA that manages the interventions of maintenance
-                                            of the classrooms and IT labs, also it manages the IT equipments Stock.
+                                            Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                            libero tempore, cum soluta nobis est eligendi
+                                            Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                            libero tempore, cum soluta nobis est eligendi
                                         </li>
                                     </ul>
                                 </div>
