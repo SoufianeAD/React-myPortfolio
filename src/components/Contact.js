@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Map from "./Map";
+import emailjs from "emailjs-com";
 
 const renderMap = (weather) => {
     const lat = 48.6343057;
     const lon = 2.4380638;
     return <Map lat={lat} lon={lon} />;
 }
+
+
 
 const Contact = () => {
 
@@ -16,7 +19,19 @@ const Contact = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        console.log('sender Name : ', senderName);
+        emailjs.send("service_f7q988p","template_ifcl5jt",{
+            subject: subject,
+            from_name: senderName,
+            message: message,
+            from_email: senderEmail,
+        }, "user_ek1lmsgRmlgdAKGpryGQS")
+            .then(() => {
+                console.log("sent succesfully!");
+                setMessage('');
+                setSubject('')
+                setSenderEmail('');
+                setSenderName('');
+            });
     }
 
     return (

@@ -1,6 +1,33 @@
 import React from "react";
+import Contentful from "../api/ContentFul";
 
 class Certificates extends React.Component {
+
+    state = {certificates: []}
+
+    componentDidMount() {
+        Contentful.getEntries({ 'content_type' : 'certificates'})
+            .then(response => {
+                this.setState({certificates: response.items.reverse()});
+            });
+    }
+
+    renderList() {
+        return this.state.certificates.map((elem) => {
+            return (
+                <div className="col-lg-4 col-md-6 portfolio-item filter-card" key={elem.fields.id}>
+                    <div className="portfolio-wrap">
+                        <img src={elem.fields.picture.fields.file.url} className="img-fluid" alt="" />
+                        <div className="portfolio-links">
+                            <a href={elem.fields.picture.fields.file.url} data-gall="portfolioGallery" className="venobox" >
+                                <i className="bx bx-zoom-in" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        });
+    }
 
     render() {
         return (
@@ -14,16 +41,7 @@ class Certificates extends React.Component {
 
                        <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-                           <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-                               <div className="portfolio-wrap">
-                                   <img src="assets/img/portfolio/portfolio-7.jpg" className="img-fluid" alt="" />
-                                   <div className="portfolio-links">
-                                       <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" className="venobox" >
-                                           <i className="bx bx-zoom-in" />
-                                       </a>
-                                   </div>
-                               </div>
-                           </div>
+                           {this.renderList()}
 
                        </div>
 

@@ -1,13 +1,34 @@
 import React from "react";
 import Contentful from "../api/ContentFul";
+import _ from "lodash";
 
 class Education extends React.Component {
 
+    state = {education: [], experiences: []}
+
     componentDidMount() {
-        Contentful.getEntries({ 'content_type' : 'certificate'})
+        Contentful.getEntries({ 'content_type' : 'experiences'})
             .then(response => {
                 console.log(response.items);
+                this.setState({experiences: _.sortBy(response.items, e => e.fields.id).reverse()});
             });
+    }
+
+    renderExperiences() {
+        return this.state.experiences.map((elem) => {
+            return (
+                <div className="resume-item" key={elem.fields.id}>
+                    <h4>{elem.fields.title}</h4>
+                    <h5>{elem.fields.date}</h5>
+                    <p><em>{elem.fields.company}</em></p>
+                    <ul>
+                        <li>
+                            {elem.fields.content}
+                        </li>
+                    </ul>
+                </div>
+            );
+        });
     }
 
     render() {
@@ -65,49 +86,7 @@ class Education extends React.Component {
                             </div>
                             <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                                 <h3 className="resume-title">Professional Experience</h3>
-                                <div className="resume-item">
-                                    <h4>Software Development Summer Internship</h4>
-                                    <h5>June-2019 - September-2019</h5>
-                                    <p><em>AL AKHAWAYN UNIVERSITY, IFRANE MOROCCO </em></p>
-                                    <ul>
-                                        <li>
-                                            Design and development of a web application using ANGULAR,
-                                            SPRING BOOT, DATA-JPA that manages the interventions of maintenance
-                                            of the classrooms and IT labs, also it manages the IT equipments Stock.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="resume-item">
-                                    <h4>Software Development Summer Internship</h4>
-                                    <h5>July-2018 - August-2018</h5>
-                                    <p><em>HASSAN 2 HOSPITAL, FES MOROCCO</em></p>
-                                    <ul>
-                                        <li>
-                                            Development of a PHP/MYSQL web application that manages the interventions
-                                            of repairing broken down equipments.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="resume-item">
-                                    <h4>Summer Internship (Job Shadowing)</h4>
-                                    <h5>August-2017</h5>
-                                    <p><em>AZROU-SANI S.A.R.L, AZROU MOROCCO</em></p>
-                                    <ul>
-                                        <li>
-                                            Development of a C++ desktop application that manages clients, orders and bills.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="resume-item">
-                                    <h4>Summer Internship (Job Shadowing)</h4>
-                                    <h5>July-2017</h5>
-                                    <p><em>CITY-SURVEILLANCE S.A.R.L, CASABLANCA MOROCCO</em></p>
-                                    <ul>
-                                        <li>
-                                            Development of a C++ desktop application that manages workers, wages and hours of work.
-                                        </li>
-                                    </ul>
-                                </div>
+                                {this.renderExperiences()}
                             </div>
                         </div>
 
