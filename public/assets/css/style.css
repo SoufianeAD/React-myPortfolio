@@ -661,6 +661,15 @@ section {
   transform: translateY(-50%);
 }
 
+
+.vertical-bottom {
+  margin: 0;
+  position: absolute;
+  bottom: 60px;
+  /*-ms-transform: translateY(-50%);
+  transform: translateY(-50%);*/
+}
+
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/

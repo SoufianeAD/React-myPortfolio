@@ -1,6 +1,7 @@
 import React from "react";
 
 const Sidenav = () => {
+
     return (
         <div>
             <button type="button" className="mobile-nav-toggle d-xl-none">
@@ -62,7 +63,18 @@ const Sidenav = () => {
                                     <span>Contact</span>
                                 </a>
                             </li>
-
+                            <li>
+                                <a href="/FrenchCV.pdf" target="_blank">
+                                    <img className="mr-2" src="/assets/img/france.png" />
+                                    <span>Download CV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/EnglishCV.pdf" target="_blank">
+                                    <img className="mr-2" src="/assets/img/united-states.png" />
+                                    <span>Download CV</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 

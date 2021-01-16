@@ -10,7 +10,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     </GoogleMap>
 ));
 
-const MAP_KEY = 'AIzaSyAd9o7ketApBYbtX1-Eh1W8hXMifSnxvAo';//AIzaSyAq06l5RUVfib62IYRQacLc-KAy0XIWAVs
+//AIzaSyAq06l5RUVfib62IYRQacLc-KAy0XIWAVs
 
 const Map =  (props) => {
     return (
