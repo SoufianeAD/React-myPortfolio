@@ -640,6 +640,7 @@ section {
 
 .services .title a {
   color: #343a40;
+  vertical-align: center;
 }
 
 .services .title a:hover {
@@ -650,6 +651,14 @@ section {
   margin-left: 80px;
   line-height: 24px;
   font-size: 14px;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 /*--------------------------------------------------------------

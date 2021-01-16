@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Map from "./Map";
 import emailjs from "emailjs-com";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
 
 const renderMap = (weather) => {
     const lat = 48.6343057;
@@ -8,14 +10,13 @@ const renderMap = (weather) => {
     return <Map lat={lat} lon={lon} />;
 }
 
-
-
 const Contact = () => {
 
     const [senderName, setSenderName] = useState('');
     const [senderEmail, setSenderEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -26,18 +27,38 @@ const Contact = () => {
             from_email: senderEmail,
         }, "user_ek1lmsgRmlgdAKGpryGQS")
             .then(() => {
-                console.log("sent succesfully!");
-                setMessage('');
-                setSubject('')
-                setSenderEmail('');
-                setSenderName('');
+                clearInputs();
+                showSnackbar();
             });
+    }
+
+    const showSnackbar = () => {
+        setSnackbarOpen(true);
+    }
+
+    const hideSnackbar = () => {
+        setSnackbarOpen(false);
+    }
+
+    const clearInputs = () => {
+        setMessage('');
+        setSubject('')
+        setSenderEmail('');
+        setSenderName('');
     }
 
     return (
         <div>
+
             <section id="contact" className="contact">
                 <div className="container">
+
+                    <Snackbar
+                        open={snackbarOpen}
+                        onClose={hideSnackbar}
+                        message="Message sent successfully !"
+                        autoHideDuration={4000}
+                    />
 
                     <div className="section-title">
                         <h2>Contact</h2>

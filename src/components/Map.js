@@ -10,13 +10,15 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     </GoogleMap>
 ));
 
+const MAP_KEY = 'AIzaSyAd9o7ketApBYbtX1-Eh1W8hXMifSnxvAo';//AIzaSyAq06l5RUVfib62IYRQacLc-KAy0XIWAVs
+
 const Map =  (props) => {
     return (
         <MyMapComponent
             lat={props.lat}
             lon={props.lon}
             isMarkerShown
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq06l5RUVfib62IYRQacLc-KAy0XIWAVs"
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd9o7ketApBYbtX1-Eh1W8hXMifSnxvAo"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `300px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
