@@ -1,9 +1,37 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Contentful from "../api/ContentFul";
 
-const Projects = () => {
-    return (
-        <div>
+class Projects extends  React.Component {
+
+    state = { projects: []}
+
+    componentDidMount() {
+        Contentful.getEntries({ 'content_type' : 'projects'})
+            .then(response => {
+                this.setState({projects: response.items.reverse()});
+            });
+    }
+
+    renderList() {
+        return this.state.projects.map( elem => {
+            return (
+                <div className="col-lg-4 col-md-6 portfolio-item filter-app" key={elem.fields.id}>
+                    <div className="portfolio-wrap">
+                        <img src={elem.fields.picture.fields.file.url} className="img-fluid" alt="" />
+                        <div className="portfolio-links">
+                            <Link to={`/project/${elem.fields.id}`} >
+                                <i className="bx bx-link" />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            );
+        });
+    }
+
+    render() {
+        return (
             <section id="portfolio" className="portfolio section-bg">
                 <div className="container">
 
@@ -24,22 +52,12 @@ const Projects = () => {
                     </div>
 
                     <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-                        <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-                            <div className="portfolio-wrap">
-                                <img src="assets/img/portfolio/portfolio-1.jpg" className="img-fluid" alt="" />
-                                    <div className="portfolio-links">
-                                        <Link to="/project/details/1" >
-                                            <i className="bx bx-link" />
-                                        </Link>
-                                    </div>
-                            </div>
-                        </div>
+                        {this.renderList()}
                     </div>
 
-                    </div>
+                </div>
             </section>
-        </div>
-    );
+        );
+    }
 }
 export default Projects;

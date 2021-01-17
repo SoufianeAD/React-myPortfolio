@@ -8,10 +8,10 @@ import ProjectDetails from "./ProjectDetails";
 const App = () => {
     return (
         <div>
-            <Sidenav />
             <BrowserRouter>
+                <Sidenav />
                 <Route path="/" exact component={MainPage}/>
-                <Route path="/project/details/:id" exact component={ProjectDetails} />
+                <Route path="/project/:id" exact component={ProjectDetails} />
             </BrowserRouter>
         </div>
     );

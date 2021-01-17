@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Sidenav = () => {
 
@@ -14,7 +15,7 @@ const Sidenav = () => {
                     <div className="profile">
                         <img src="assets/img/profile-img.jpg" alt="" className="img-fluid rounded-circle" />
                             <h1 className="text-light text-center">
-                                <span>AMMY DRISS SOUFIANE</span>
+                                <Link to="/">AMMY DRISS SOUFIANE</Link>
                             </h1>
                             <div className="social-links mt-3 text-center">
                                 <a href="https://github.com/SoufianeAD" target="_blank" className="github">

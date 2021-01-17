@@ -40,9 +40,7 @@ class Certificates extends React.Component {
                        </div>
 
                        <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
                            {this.renderList()}
-
                        </div>
 
                    </div>
