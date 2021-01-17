@@ -21,7 +21,7 @@ class Projects extends  React.Component {
                         <img src={elem.fields.picture.fields.file.url} className="img-fluid" alt="" />
                         <div className="portfolio-links">
                             <Link to={`/project/${elem.fields.id}`} >
-                                <i className="bx bx-link" />
+                                <i className="bx bx-plus" />
                             </Link>
                         </div>
                     </div>
