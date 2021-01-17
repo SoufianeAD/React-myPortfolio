@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Projects = () => {
     return (
@@ -7,7 +8,7 @@ const Projects = () => {
                 <div className="container">
 
                     <div className="section-title">
-                        <h2>Projects</h2>
+                        <h2>Portfolio</h2>
                     </div>
 
                     <div className="row" data-aos="fade-up">
@@ -22,7 +23,21 @@ const Projects = () => {
                         </div>
                     </div>
 
-                </div>
+                    <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+                        <div className="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div className="portfolio-wrap">
+                                <img src="assets/img/portfolio/portfolio-1.jpg" className="img-fluid" alt="" />
+                                    <div className="portfolio-links">
+                                        <Link to="/project/details/1" >
+                                            <i className="bx bx-link" />
+                                        </Link>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
             </section>
         </div>
     );

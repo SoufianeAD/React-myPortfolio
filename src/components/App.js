@@ -1,29 +1,18 @@
 import React from "react";
+import { BrowserRouter, Route} from "react-router-dom";
 import Sidenav from "./Sidenav";
 import Home from "./Home"
-import About from "./About";
-import Skills from "./Skills";
-import Education from "./Education";
-import Projects from "./Projects";
-import Contact from "./Contact";
-import Certificates from "./Certificates";
+import MainPage from "./MainPage";
+import ProjectDetails from "./ProjectDetails";
 
 const App = () => {
     return (
         <div>
             <Sidenav />
-            <Home />
-            <main id="main">
-                <About />
-                <Education />
-                <Certificates />
-                <Skills />
-                <Projects />
-                <Contact />
-            </main>
-            <a href="#" className="back-to-top">
-                <i className="icofont-simple-up"></i>
-            </a>
+            <BrowserRouter>
+                <Route path="/" exact component={MainPage}/>
+                <Route path="/project/details/:id" exact component={ProjectDetails} />
+            </BrowserRouter>
         </div>
     );
 }
