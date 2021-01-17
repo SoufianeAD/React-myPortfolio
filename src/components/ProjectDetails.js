@@ -15,7 +15,6 @@ class ProjectDetails extends  React.Component {
                      return elem.fields.id == id;
                 })[0];
                 this.setState({project: p});
-                console.log(this.state.project);
             });
     }
 
