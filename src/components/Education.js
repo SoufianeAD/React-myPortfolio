@@ -40,7 +40,7 @@ class Education extends React.Component {
                 <div className="resume-item" key={elem.fields.id}>
                     <h4>{elem.fields.title}</h4>
                     <h5>{elem.fields.date}</h5>
-                    <p><em>{elem.fields.institution}</em></p>
+                    <p><em>{elem.fields.instution}</em></p>
                     <ul>
                         <li>
                             {elem.fields.description}
