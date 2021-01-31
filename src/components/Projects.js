@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Contentful from "../api/ContentFul";
+import _ from "lodash";
 
 class Projects extends  React.Component {
 
@@ -9,7 +10,7 @@ class Projects extends  React.Component {
     componentDidMount() {
         Contentful.getEntries({ 'content_type' : 'projects'})
             .then(response => {
-                this.setState({projects: response.items.reverse()});
+                this.setState({projects: _.sortBy(response.items, e => e.fields.id)})
             });
     }
 

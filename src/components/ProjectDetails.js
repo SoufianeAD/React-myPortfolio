@@ -52,7 +52,7 @@ class ProjectDetails extends  React.Component {
                         </div>
 
                         <div className="portfolio-description">
-                            <h2>{this.state.project.fields.title}</h2>
+                            <h2 className="w-100">{this.state.project.fields.title}</h2>
                             <p>
                                 {this.state.project.fields.description}
                             </p>
