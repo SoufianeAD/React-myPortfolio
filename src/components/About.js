@@ -41,7 +41,7 @@ const About = () => {
                                         </li>
                                         <li>
                                             <i className="icofont-rounded-right" />
-                                            <strong>Degree:</strong> Enginnering Student
+                                            <strong>Degree:</strong> Engineering Student
                                         </li>
                                         <li>
                                             <i className="icofont-rounded-right" />
